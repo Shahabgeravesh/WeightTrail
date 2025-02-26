@@ -6,6 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BAA1354D2D6EDD2B0059BD35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA135472D6EDD2B0059BD35 /* Assets.xcassets */; };
+		BAA1354E2D6EDD2B0059BD35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA1353F2D6EDD2B0059BD35 /* Preview Assets.xcassets */; };
+		BAA1354F2D6EDD2B0059BD35 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1354B2D6EDD2B0059BD35 /* Theme.swift */; };
+		BAA135502D6EDD2B0059BD35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA135482D6EDD2B0059BD35 /* ContentView.swift */; };
+		BAA135512D6EDD2B0059BD35 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA135412D6EDD2B0059BD35 /* StoreManager.swift */; };
+		BAA135522D6EDD2B0059BD35 /* WeightTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA135432D6EDD2B0059BD35 /* WeightTrackerViewModel.swift */; };
+		BAA135532D6EDD2B0059BD35 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1353D2D6EDD2B0059BD35 /* Weight.swift */; };
+		BAA135542D6EDD2B0059BD35 /* HabitmendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1354A2D6EDD2B0059BD35 /* HabitmendApp.swift */; };
+		BAA135552D6EDD2B0059BD35 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA135452D6EDD2B0059BD35 /* ProgressView.swift */; };
+		BAA1355B2D6EDD420059BD35 /* WeightTrailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA135592D6EDD420059BD35 /* WeightTrailTests.swift */; };
+		BAA1355E2D6EDD490059BD35 /* WeightTrailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1355C2D6EDD490059BD35 /* WeightTrailUITests.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		BA0F30B62D6EC71E006595D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,28 +38,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BA0F30A42D6EC71C006595D4 /* Habitmend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitmend.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA0F30B52D6EC71E006595D4 /* HabitmendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitmendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA0F30BF2D6EC71E006595D4 /* HabitmendUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitmendUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0F30A42D6EC71C006595D4 /* WeightTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0F30B52D6EC71E006595D4 /* WeightTrailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0F30BF2D6EC71E006595D4 /* WeightTrailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA1353D2D6EDD2B0059BD35 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
+		BAA1353F2D6EDD2B0059BD35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BAA135412D6EDD2B0059BD35 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		BAA135432D6EDD2B0059BD35 /* WeightTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerViewModel.swift; sourceTree = "<group>"; };
+		BAA135452D6EDD2B0059BD35 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		BAA135472D6EDD2B0059BD35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BAA135482D6EDD2B0059BD35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BAA135492D6EDD2B0059BD35 /* WeightTrail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeightTrail.entitlements; sourceTree = "<group>"; };
+		BAA1354A2D6EDD2B0059BD35 /* HabitmendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitmendApp.swift; sourceTree = "<group>"; };
+		BAA1354B2D6EDD2B0059BD35 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		BAA135562D6EDD370059BD35 /* WeightTrail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WeightTrail.xcodeproj; sourceTree = SOURCE_ROOT; };
+		BAA135592D6EDD420059BD35 /* WeightTrailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrailTests.swift; sourceTree = "<group>"; };
+		BAA1355C2D6EDD490059BD35 /* WeightTrailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrailUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		BA0F30A62D6EC71C006595D4 /* Habitmend */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Habitmend;
-			sourceTree = "<group>";
-		};
-		BA0F30B82D6EC71E006595D4 /* HabitmendTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HabitmendTests;
-			sourceTree = "<group>";
-		};
-		BA0F30C22D6EC71E006595D4 /* HabitmendUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HabitmendUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BA0F30A12D6EC71C006595D4 /* Frameworks */ = {
@@ -75,9 +84,8 @@
 		BA0F309B2D6EC71C006595D4 = {
 			isa = PBXGroup;
 			children = (
-				BA0F30A62D6EC71C006595D4 /* Habitmend */,
-				BA0F30B82D6EC71E006595D4 /* HabitmendTests */,
-				BA0F30C22D6EC71E006595D4 /* HabitmendUITests */,
+				BAA1355A2D6EDD420059BD35 /* WeightTrailTests */,
+				BAA1354C2D6EDD2B0059BD35 /* WeightTrail */,
 				BA0F30A52D6EC71C006595D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,19 +93,99 @@
 		BA0F30A52D6EC71C006595D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA0F30A42D6EC71C006595D4 /* Habitmend.app */,
-				BA0F30B52D6EC71E006595D4 /* HabitmendTests.xctest */,
-				BA0F30BF2D6EC71E006595D4 /* HabitmendUITests.xctest */,
+				BA0F30A42D6EC71C006595D4 /* WeightTrail.app */,
+				BA0F30B52D6EC71E006595D4 /* WeightTrailTests.xctest */,
+				BA0F30BF2D6EC71E006595D4 /* WeightTrailUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BAA1353E2D6EDD2B0059BD35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BAA1353D2D6EDD2B0059BD35 /* Weight.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BAA135402D6EDD2B0059BD35 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BAA1353F2D6EDD2B0059BD35 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BAA135422D6EDD2B0059BD35 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				BAA135412D6EDD2B0059BD35 /* StoreManager.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		BAA135442D6EDD2B0059BD35 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BAA135432D6EDD2B0059BD35 /* WeightTrackerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BAA135462D6EDD2B0059BD35 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAA135452D6EDD2B0059BD35 /* ProgressView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BAA1354C2D6EDD2B0059BD35 /* WeightTrail */ = {
+			isa = PBXGroup;
+			children = (
+				BAA135562D6EDD370059BD35 /* WeightTrail.xcodeproj */,
+				BAA1353E2D6EDD2B0059BD35 /* Models */,
+				BAA135402D6EDD2B0059BD35 /* Preview Content */,
+				BAA135422D6EDD2B0059BD35 /* Store */,
+				BAA135442D6EDD2B0059BD35 /* ViewModels */,
+				BAA135462D6EDD2B0059BD35 /* Views */,
+				BAA135472D6EDD2B0059BD35 /* Assets.xcassets */,
+				BAA135482D6EDD2B0059BD35 /* ContentView.swift */,
+				BAA135492D6EDD2B0059BD35 /* WeightTrail.entitlements */,
+				BAA1354A2D6EDD2B0059BD35 /* HabitmendApp.swift */,
+				BAA1354B2D6EDD2B0059BD35 /* Theme.swift */,
+			);
+			path = WeightTrail;
+			sourceTree = "<group>";
+		};
+		BAA135572D6EDD370059BD35 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAA1355A2D6EDD420059BD35 /* WeightTrailTests */ = {
+			isa = PBXGroup;
+			children = (
+				BAA1355D2D6EDD490059BD35 /* WeightTrailUITests */,
+				BAA135592D6EDD420059BD35 /* WeightTrailTests.swift */,
+			);
+			path = WeightTrailTests;
+			sourceTree = "<group>";
+		};
+		BAA1355D2D6EDD490059BD35 /* WeightTrailUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BAA1355C2D6EDD490059BD35 /* WeightTrailUITests.swift */,
+			);
+			path = WeightTrailUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BA0F30A32D6EC71C006595D4 /* Habitmend */ = {
+		BA0F30A32D6EC71C006595D4 /* WeightTrail */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA0F30C92D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "Habitmend" */;
+			buildConfigurationList = BA0F30C92D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "WeightTrail" */;
 			buildPhases = (
 				BA0F30A02D6EC71C006595D4 /* Sources */,
 				BA0F30A12D6EC71C006595D4 /* Frameworks */,
@@ -107,19 +195,16 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				BA0F30A62D6EC71C006595D4 /* Habitmend */,
-			);
-			name = Habitmend;
+			name = WeightTrail;
 			packageProductDependencies = (
 			);
 			productName = Habitmend;
-			productReference = BA0F30A42D6EC71C006595D4 /* Habitmend.app */;
+			productReference = BA0F30A42D6EC71C006595D4 /* WeightTrail.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BA0F30B42D6EC71E006595D4 /* HabitmendTests */ = {
+		BA0F30B42D6EC71E006595D4 /* WeightTrailTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA0F30CC2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "HabitmendTests" */;
+			buildConfigurationList = BA0F30CC2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "WeightTrailTests" */;
 			buildPhases = (
 				BA0F30B12D6EC71E006595D4 /* Sources */,
 				BA0F30B22D6EC71E006595D4 /* Frameworks */,
@@ -130,19 +215,16 @@
 			dependencies = (
 				BA0F30B72D6EC71E006595D4 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				BA0F30B82D6EC71E006595D4 /* HabitmendTests */,
-			);
-			name = HabitmendTests;
+			name = WeightTrailTests;
 			packageProductDependencies = (
 			);
 			productName = HabitmendTests;
-			productReference = BA0F30B52D6EC71E006595D4 /* HabitmendTests.xctest */;
+			productReference = BA0F30B52D6EC71E006595D4 /* WeightTrailTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BA0F30BE2D6EC71E006595D4 /* HabitmendUITests */ = {
+		BA0F30BE2D6EC71E006595D4 /* WeightTrailUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA0F30CF2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "HabitmendUITests" */;
+			buildConfigurationList = BA0F30CF2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "WeightTrailUITests" */;
 			buildPhases = (
 				BA0F30BB2D6EC71E006595D4 /* Sources */,
 				BA0F30BC2D6EC71E006595D4 /* Frameworks */,
@@ -153,14 +235,11 @@
 			dependencies = (
 				BA0F30C12D6EC71E006595D4 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				BA0F30C22D6EC71E006595D4 /* HabitmendUITests */,
-			);
-			name = HabitmendUITests;
+			name = WeightTrailUITests;
 			packageProductDependencies = (
 			);
 			productName = HabitmendUITests;
-			productReference = BA0F30BF2D6EC71E006595D4 /* HabitmendUITests.xctest */;
+			productReference = BA0F30BF2D6EC71E006595D4 /* WeightTrailUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BA0F309F2D6EC71C006595D4 /* Build configuration list for PBXProject "Habitmend" */;
+			buildConfigurationList = BA0F309F2D6EC71C006595D4 /* Build configuration list for PBXProject "WeightTrail" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -198,11 +277,17 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BA0F30A52D6EC71C006595D4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BAA135572D6EDD370059BD35 /* Products */;
+					ProjectRef = BAA135562D6EDD370059BD35 /* WeightTrail.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				BA0F30A32D6EC71C006595D4 /* Habitmend */,
-				BA0F30B42D6EC71E006595D4 /* HabitmendTests */,
-				BA0F30BE2D6EC71E006595D4 /* HabitmendUITests */,
+				BA0F30A32D6EC71C006595D4 /* WeightTrail */,
+				BA0F30B42D6EC71E006595D4 /* WeightTrailTests */,
+				BA0F30BE2D6EC71E006595D4 /* WeightTrailUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -212,6 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA1354D2D6EDD2B0059BD35 /* Assets.xcassets in Resources */,
+				BAA1354E2D6EDD2B0059BD35 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +323,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA1355B2D6EDD420059BD35 /* WeightTrailTests.swift in Sources */,
+				BAA1354F2D6EDD2B0059BD35 /* Theme.swift in Sources */,
+				BAA135502D6EDD2B0059BD35 /* ContentView.swift in Sources */,
+				BAA135512D6EDD2B0059BD35 /* StoreManager.swift in Sources */,
+				BAA1355E2D6EDD490059BD35 /* WeightTrailUITests.swift in Sources */,
+				BAA135522D6EDD2B0059BD35 /* WeightTrackerViewModel.swift in Sources */,
+				BAA135532D6EDD2B0059BD35 /* Weight.swift in Sources */,
+				BAA135542D6EDD2B0059BD35 /* HabitmendApp.swift in Sources */,
+				BAA135552D6EDD2B0059BD35 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +354,12 @@
 /* Begin PBXTargetDependency section */
 		BA0F30B72D6EC71E006595D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA0F30A32D6EC71C006595D4 /* Habitmend */;
+			target = BA0F30A32D6EC71C006595D4 /* WeightTrail */;
 			targetProxy = BA0F30B62D6EC71E006595D4 /* PBXContainerItemProxy */;
 		};
 		BA0F30C12D6EC71E006595D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA0F30A32D6EC71C006595D4 /* Habitmend */;
+			target = BA0F30A32D6EC71C006595D4 /* WeightTrail */;
 			targetProxy = BA0F30C02D6EC71E006595D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -388,10 +484,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Habitmend/Habitmend.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WeightTrail/Habitmend.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Habitmend/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WeightTrail/Preview Content\"";
 				DEVELOPMENT_TEAM = K8ZK9C85FY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -406,18 +502,20 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Habitmend.Habitmend;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weighttrail.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -427,10 +525,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Habitmend/Habitmend.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WeightTrail/Habitmend.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Habitmend/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WeightTrail/Preview Content\"";
 				DEVELOPMENT_TEAM = K8ZK9C85FY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -445,18 +543,20 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Habitmend.Habitmend;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weighttrail.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -469,17 +569,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K8ZK9C85FY;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Habitmend.HabitmendTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habitmend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Habitmend";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightTrail.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightTrail";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -492,17 +592,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K8ZK9C85FY;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Habitmend.HabitmendTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habitmend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Habitmend";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightTrail.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightTrail";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -514,16 +614,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K8ZK9C85FY;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Habitmend.HabitmendUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Habitmend;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -536,16 +636,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K8ZK9C85FY;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Habitmend.HabitmendUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Habitmend;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -554,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BA0F309F2D6EC71C006595D4 /* Build configuration list for PBXProject "Habitmend" */ = {
+		BA0F309F2D6EC71C006595D4 /* Build configuration list for PBXProject "WeightTrail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA0F30C72D6EC71E006595D4 /* Debug */,
@@ -563,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA0F30C92D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "Habitmend" */ = {
+		BA0F30C92D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "WeightTrail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA0F30CA2D6EC71E006595D4 /* Debug */,
@@ -572,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA0F30CC2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "HabitmendTests" */ = {
+		BA0F30CC2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "WeightTrailTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA0F30CD2D6EC71E006595D4 /* Debug */,
@@ -581,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA0F30CF2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "HabitmendUITests" */ = {
+		BA0F30CF2D6EC71E006595D4 /* Build configuration list for PBXNativeTarget "WeightTrailUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA0F30D02D6EC71E006595D4 /* Debug */,
