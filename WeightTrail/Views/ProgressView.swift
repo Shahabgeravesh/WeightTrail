@@ -8,12 +8,21 @@ struct WeightProgressView: View {
     @State private var selectedTimeFrame: TimeFrame = .month
     
     var filteredWeights: [Weight] {
-        viewModel.weights.filter { selectedTimeFrame.isInRange($0.date) }
+        viewModel.weights
+            .filter { selectedTimeFrame.isInRange($0.date) }
+            .map { weight in
+                // Convert weight to preferred unit
+                let convertedWeight = viewModel.preferredUnit == .kg ? 
+                    weight.weight / 2.20462 : weight.weight
+                return Weight(id: weight.id, date: weight.date, weight: convertedWeight)
+            }
     }
     
     var yAxisRange: ClosedRange<Double> {
         let weights = filteredWeights.map(\.weight)
-        let goalWeight = viewModel.goalWeight ?? 0
+        let goalWeight = viewModel.goalWeight.map { 
+            viewModel.preferredUnit == .kg ? $0 / 2.20462 : $0 
+        } ?? 0
         let minWeight = min((weights.min() ?? goalWeight) - 5, goalWeight - 5)
         let maxWeight = max((weights.max() ?? goalWeight) + 5, goalWeight + 5)
         return minWeight...maxWeight
@@ -22,16 +31,25 @@ struct WeightProgressView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: horizontalSizeClass == .regular ? 32 : 24) {
-                if !viewModel.weights.isEmpty {
-                    // Time Frame Picker
-                    Picker("Time Frame", selection: $selectedTimeFrame) {
-                        ForEach(TimeFrame.allCases, id: \.self) { timeFrame in
-                            Text(timeFrame.rawValue).tag(timeFrame)
-                        }
+                // Unit Selector
+                Picker("Unit", selection: $viewModel.preferredUnit) {
+                    Text("kg").tag(WeightUnit.kg)
+                    Text("lbs").tag(WeightUnit.lbs)
+                }
+                .pickerStyle(.segmented)
+                .frame(width: 100)
+                .padding(.horizontal)
+                
+                // Time Frame Selector
+                Picker("Time Frame", selection: $selectedTimeFrame) {
+                    ForEach(TimeFrame.allCases, id: \.self) { timeFrame in
+                        Text(timeFrame.rawValue).tag(timeFrame)
                     }
-                    .pickerStyle(.segmented)
-                    .padding(.horizontal)
-                    
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                
+                if !viewModel.weights.isEmpty {
                     // Weight Chart Card
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Weight Trend")
@@ -41,7 +59,9 @@ struct WeightProgressView: View {
                         WeightChartView(
                             weights: filteredWeights,
                             timeFrame: selectedTimeFrame,
-                            goalWeight: viewModel.goalWeight,
+                            goalWeight: viewModel.goalWeight.map { 
+                                viewModel.preferredUnit == .kg ? $0 / 2.20462 : $0 
+                            },
                             yAxisRange: yAxisRange
                         )
                         .frame(height: 220)
@@ -56,6 +76,7 @@ struct WeightProgressView: View {
                     
                     // Stats Cards
                     StatsGridView(viewModel: viewModel, timeFrame: selectedTimeFrame)
+                        .id(viewModel.preferredUnit)
                 } else {
                     // Empty State
                     VStack(spacing: 20) {
@@ -72,35 +93,6 @@ struct WeightProgressView: View {
                             .foregroundColor(.secondary)
                     }
                     .padding(40)
-                }
-                
-                // Make charts and content adapt to iPad
-                if horizontalSizeClass == .regular {
-                    // iPad layout
-                    HStack(alignment: .top, spacing: 24) {
-                        // Charts
-                        VStack {
-                            WeightChartView(
-                                weights: filteredWeights,
-                                timeFrame: selectedTimeFrame,
-                                goalWeight: viewModel.goalWeight,
-                                yAxisRange: yAxisRange
-                            )
-                            .frame(maxWidth: .infinity)
-                        }
-                        
-                        // Statistics
-                        VStack {
-                            StatsGridView(viewModel: viewModel, timeFrame: selectedTimeFrame)
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
-                    .padding(.horizontal)
-                } else {
-                    // iPhone layout (your existing layout)
-                    VStack {
-                        // Your existing content
-                    }
                 }
             }
             .frame(maxWidth: horizontalSizeClass == .regular ? 1000 : .infinity)
@@ -315,101 +307,6 @@ struct WeightChartView: View {
         .padding()
         .background(Color(.systemBackground))
         .cornerRadius(12)
-    }
-}
-
-struct StatsGridView: View {
-    let viewModel: WeightTrackerViewModel
-    let timeFrame: TimeFrame
-    
-    var body: some View {
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-            if let currentWeight = viewModel.weights.first?.weight {
-                StatCard(
-                    title: "Current Weight",
-                    value: String(format: "%.1f", currentWeight),
-                    unit: "lbs",
-                    icon: "scalemass.fill"
-                )
-            }
-            
-            if let change = Weight.calculateChange(from: viewModel.weights, timeFrame: timeFrame) {
-                StatCard(
-                    title: "\(timeFrame.rawValue) Change",
-                    value: String(format: "%.1f", change),
-                    unit: "lbs",
-                    icon: "arrow.up.right",
-                    tint: change < 0 ? .green : .red
-                )
-            }
-            
-            if let average = viewModel.weights.prefix(timeFrame.days).map(\.weight).average {
-                StatCard(
-                    title: "\(timeFrame.rawValue) Average",
-                    value: String(format: "%.1f", average),
-                    unit: "lbs",
-                    icon: "chart.bar.fill",
-                    tint: .purple
-                )
-            }
-            
-            if let goalWeight = viewModel.goalWeight,
-               let currentWeight = viewModel.weights.first?.weight {
-                let remaining = abs(goalWeight - currentWeight)
-                StatCard(
-                    title: "To Goal",
-                    value: String(format: "%.1f", remaining),
-                    unit: "lbs",
-                    icon: "flag.fill",
-                    tint: .orange
-                )
-            }
-        }
-        .padding(.horizontal)
-    }
-}
-
-// Helper extension for calculating average
-extension Collection where Element == Double {
-    var average: Double? {
-        guard !isEmpty else { return nil }
-        return reduce(0, +) / Double(count)
-    }
-}
-
-struct StatCard: View {
-    let title: String
-    let value: String
-    let unit: String
-    let icon: String
-    var tint: Color = .blue
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: icon)
-                    .foregroundColor(tint)
-                Text(title)
-                    .foregroundColor(.secondary)
-            }
-            .font(.subheadline)
-            
-            HStack(alignment: .firstTextBaseline, spacing: 4) {
-                Text(value)
-                    .font(.title)
-                    .bold()
-                Text(unit)
-                    .font(.callout)
-                    .foregroundColor(.secondary)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(.systemBackground))
-                .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 2)
-        )
     }
 }
 

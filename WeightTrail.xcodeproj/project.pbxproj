@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2574622D72D0D500530318 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574612D72D0D500530318 /* Journal.swift */; };
+		BA2574642D72D17900530318 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574632D72D17900530318 /* JournalView.swift */; };
+		BA2574662D72D54800530318 /* WeightTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574652D72D54800530318 /* WeightTrackingView.swift */; };
+		BA25746A2D72D61900530318 /* WeightUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574692D72D61900530318 /* WeightUnit.swift */; };
+		BA25746B2D72D62500530318 /* AddWeightCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25746C2D72D62500530318 /* AddWeightCard.swift */; };
+		BA25746E2D72D64000530318 /* WeightHistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25746F2D72D64000530318 /* WeightHistorySection.swift */; };
+		BA2574702D72D64100530318 /* GoalWeightSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574712D72D64100530318 /* GoalWeightSheet.swift */; };
+		BA2574722D72D64200530318 /* EditWeightSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574732D72D64200530318 /* EditWeightSheet.swift */; };
+		BA2574722D72DB0D00530318 /* StatsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574712D72DB0D00530318 /* StatsGridView.swift */; };
+		BA2574742D72D64300530318 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574752D72D64300530318 /* EmptyStateView.swift */; };
+		BA2574762D72D64400530318 /* WeightRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574772D72D64400530318 /* WeightRowView.swift */; };
+		BA2574782D72D64500530318 /* CustomStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2574672D72D5B100530318 /* CustomStyles.swift */; };
+		BA2574792D72D64600530318 /* TimeFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA25747A2D72D64600530318 /* TimeFrame.swift */; };
 		BAA1354D2D6EDD2B0059BD35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA135472D6EDD2B0059BD35 /* Assets.xcassets */; };
 		BAA1354E2D6EDD2B0059BD35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA1353F2D6EDD2B0059BD35 /* Preview Assets.xcassets */; };
 		BAA1354F2D6EDD2B0059BD35 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1354B2D6EDD2B0059BD35 /* Theme.swift */; };
@@ -41,6 +54,20 @@
 		BA0F30A42D6EC71C006595D4 /* WeightTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F30B52D6EC71E006595D4 /* WeightTrailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F30BF2D6EC71E006595D4 /* WeightTrailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2574612D72D0D500530318 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		BA2574632D72D17900530318 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		BA2574652D72D54800530318 /* WeightTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackingView.swift; sourceTree = "<group>"; };
+		BA2574672D72D5B100530318 /* CustomStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyles.swift; sourceTree = "<group>"; };
+		BA2574682D72D5F500530318 /* Habitmend.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Habitmend.entitlements; sourceTree = "<group>"; };
+		BA2574692D72D61900530318 /* WeightUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnit.swift; sourceTree = "<group>"; };
+		BA25746C2D72D62500530318 /* AddWeightCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightCard.swift; sourceTree = "<group>"; };
+		BA25746F2D72D64000530318 /* WeightHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightHistorySection.swift; sourceTree = "<group>"; };
+		BA2574712D72D64100530318 /* GoalWeightSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightSheet.swift; sourceTree = "<group>"; };
+		BA2574712D72DB0D00530318 /* StatsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridView.swift; sourceTree = "<group>"; };
+		BA2574732D72D64200530318 /* EditWeightSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeightSheet.swift; sourceTree = "<group>"; };
+		BA2574752D72D64300530318 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		BA2574772D72D64400530318 /* WeightRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightRowView.swift; sourceTree = "<group>"; };
+		BA25747A2D72D64600530318 /* TimeFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFrame.swift; sourceTree = "<group>"; };
 		BAA1353D2D6EDD2B0059BD35 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		BAA1353F2D6EDD2B0059BD35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BAA135412D6EDD2B0059BD35 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
@@ -100,10 +127,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BA2574692D72D5C000530318 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				BA2574672D72D5B100530318 /* CustomStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		BA25746D2D72D63000530318 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BA2574712D72DB0D00530318 /* StatsGridView.swift */,
+				BA25746C2D72D62500530318 /* AddWeightCard.swift */,
+				BA25746F2D72D64000530318 /* WeightHistorySection.swift */,
+				BA2574712D72D64100530318 /* GoalWeightSheet.swift */,
+				BA2574732D72D64200530318 /* EditWeightSheet.swift */,
+				BA2574752D72D64300530318 /* EmptyStateView.swift */,
+				BA2574772D72D64400530318 /* WeightRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		BAA1353E2D6EDD2B0059BD35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BA2574692D72D61900530318 /* WeightUnit.swift */,
+				BA2574612D72D0D500530318 /* Journal.swift */,
 				BAA1353D2D6EDD2B0059BD35 /* Weight.swift */,
+				BA25747A2D72D64600530318 /* TimeFrame.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,7 +187,11 @@
 		BAA135462D6EDD2B0059BD35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA2574652D72D54800530318 /* WeightTrackingView.swift */,
+				BA2574632D72D17900530318 /* JournalView.swift */,
 				BAA135452D6EDD2B0059BD35 /* ProgressView.swift */,
+				BA2574692D72D5C000530318 /* Styles */,
+				BA25746D2D72D63000530318 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +199,7 @@
 		BAA1354C2D6EDD2B0059BD35 /* WeightTrail */ = {
 			isa = PBXGroup;
 			children = (
+				BA2574682D72D5F500530318 /* Habitmend.entitlements */,
 				BAA135562D6EDD370059BD35 /* WeightTrail.xcodeproj */,
 				BAA1353E2D6EDD2B0059BD35 /* Models */,
 				BAA135402D6EDD2B0059BD35 /* Preview Content */,
@@ -323,15 +380,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA2574642D72D17900530318 /* JournalView.swift in Sources */,
 				BAA1355B2D6EDD420059BD35 /* WeightTrailTests.swift in Sources */,
+				BA2574622D72D0D500530318 /* Journal.swift in Sources */,
 				BAA1354F2D6EDD2B0059BD35 /* Theme.swift in Sources */,
 				BAA135502D6EDD2B0059BD35 /* ContentView.swift in Sources */,
+				BA2574662D72D54800530318 /* WeightTrackingView.swift in Sources */,
 				BAA135512D6EDD2B0059BD35 /* StoreManager.swift in Sources */,
 				BAA1355E2D6EDD490059BD35 /* WeightTrailUITests.swift in Sources */,
+				BA25746A2D72D61900530318 /* WeightUnit.swift in Sources */,
 				BAA135522D6EDD2B0059BD35 /* WeightTrackerViewModel.swift in Sources */,
 				BAA135532D6EDD2B0059BD35 /* Weight.swift in Sources */,
 				BAA135542D6EDD2B0059BD35 /* HabitmendApp.swift in Sources */,
+				BA2574722D72DB0D00530318 /* StatsGridView.swift in Sources */,
 				BAA135552D6EDD2B0059BD35 /* ProgressView.swift in Sources */,
+				BA25746B2D72D62500530318 /* AddWeightCard.swift in Sources */,
+				BA25746E2D72D64000530318 /* WeightHistorySection.swift in Sources */,
+				BA2574702D72D64100530318 /* GoalWeightSheet.swift in Sources */,
+				BA2574722D72D64200530318 /* EditWeightSheet.swift in Sources */,
+				BA2574742D72D64300530318 /* EmptyStateView.swift in Sources */,
+				BA2574762D72D64400530318 /* WeightRowView.swift in Sources */,
+				BA2574782D72D64500530318 /* CustomStyles.swift in Sources */,
+				BA2574792D72D64600530318 /* TimeFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +576,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weighttrail.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -547,7 +617,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weighttrail.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
