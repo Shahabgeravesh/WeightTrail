@@ -10,7 +10,6 @@ import Charts
 
 struct ContentView: View {
     @StateObject private var viewModel = WeightTrackerViewModel()
-    @StateObject private var storeManager = StoreManager.shared
     
     var body: some View {
         TabView {
@@ -30,29 +29,17 @@ struct ContentView: View {
                 Label("Log", systemImage: "square.and.pencil")
             }
             
-            // Second Tab - Progress
+            // Second Tab - Progress (now always available)
             NavigationStack {
-                if storeManager.isProgressUnlocked {
-                    WeightProgressView(viewModel: viewModel)
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            ToolbarItem(placement: .principal) {
-                                Text("Progress")
-                                    .font(.headline)
-                                    .foregroundColor(Theme.primary)
-                            }
+                WeightProgressView(viewModel: viewModel)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Text("Progress")
+                                .font(.headline)
+                                .foregroundColor(Theme.primary)
                         }
-                } else {
-                    PurchaseView(viewModel: viewModel)
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            ToolbarItem(placement: .principal) {
-                                Text("Progress")
-                                    .font(.headline)
-                                    .foregroundColor(Theme.primary)
-                            }
-                        }
-                }
+                    }
             }
             .tabItem {
                 Label("Progress", systemImage: "chart.xyaxis.line")
@@ -469,130 +456,6 @@ struct HintView: View {
                 .fill(Theme.cardBackground)
                 .shadow(color: Theme.cardShadow, radius: 4)
         )
-    }
-}
-
-struct PurchaseView: View {
-    @ObservedObject var viewModel: WeightTrackerViewModel
-    @StateObject private var storeManager = StoreManager.shared
-    @State private var isPurchasing = false
-    @State private var isRestoring = false
-    @State private var showError = false
-    @State private var errorMessage = ""
-    
-    var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                Image(systemName: "chart.xyaxis.line")
-                    .font(.system(size: 60))
-                    .foregroundStyle(Theme.primary)
-                    .symbolRenderingMode(.hierarchical)
-                
-                Text("Unlock Progress Tracking")
-                    .font(.title2)
-                    .bold()
-                
-                Text("Track your weight journey with beautiful charts and detailed statistics")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.secondary)
-                    .padding(.horizontal)
-                
-                VStack(alignment: .leading, spacing: 12) {
-                    FeatureRow(icon: "chart.xyaxis.line", text: "Interactive Weight Charts")
-                    FeatureRow(icon: "arrow.up.right.circle", text: "Progress Statistics")
-                    FeatureRow(icon: "calendar", text: "Time-based Analysis")
-                    FeatureRow(icon: "flag.fill", text: "Goal Tracking")
-                }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Theme.cardBackground)
-                )
-                .padding(.horizontal)
-                
-                if let product = storeManager.products.first {
-                    VStack(spacing: 12) {
-                        Button {
-                            Task {
-                                isPurchasing = true
-                                do {
-                                    try await storeManager.purchase(product)
-                                } catch {
-                                    errorMessage = error.localizedDescription
-                                    showError = true
-                                }
-                                isPurchasing = false
-                            }
-                        } label: {
-                            if isPurchasing {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                            } else {
-                                Text("Unlock for \(product.displayPrice)")
-                                    .bold()
-                            }
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(Theme.primary)
-                        .disabled(isPurchasing || isRestoring)
-                        
-                        Button {
-                            Task {
-                                isRestoring = true
-                                do {
-                                    try await storeManager.restorePurchases()
-                                } catch {
-                                    errorMessage = error.localizedDescription
-                                    showError = true
-                                }
-                                isRestoring = false
-                            }
-                        } label: {
-                            if isRestoring {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: Theme.primary))
-                            } else {
-                                Text("Restore Purchase")
-                                    .font(.subheadline)
-                            }
-                        }
-                        .disabled(isPurchasing || isRestoring)
-                    }
-                } else if storeManager.isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: Theme.primary))
-                }
-            }
-        }
-        .padding()
-        .alert("Purchase Failed", isPresented: $showError) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text(errorMessage)
-        }
-        .background(Theme.background.ignoresSafeArea())
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("Progress")
-                    .font(.headline)
-                    .foregroundColor(Theme.primary)
-            }
-        }
-    }
-}
-
-struct FeatureRow: View {
-    let icon: String
-    let text: String
-    
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: icon)
-                .foregroundColor(Theme.primary)
-            Text(text)
-                .foregroundColor(.primary)
-        }
     }
 }
 
