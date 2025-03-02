@@ -31,6 +31,7 @@
 		BAA135552D6EDD2B0059BD35 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA135452D6EDD2B0059BD35 /* ProgressView.swift */; };
 		BAA1355B2D6EDD420059BD35 /* WeightTrailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA135592D6EDD420059BD35 /* WeightTrailTests.swift */; };
 		BAA1355E2D6EDD490059BD35 /* WeightTrailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1355C2D6EDD490059BD35 /* WeightTrailUITests.swift */; };
+		BAE90D612D740DFA0067F715 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE90D602D740DFA0067F715 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		BAA135562D6EDD370059BD35 /* WeightTrail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WeightTrail.xcodeproj; sourceTree = SOURCE_ROOT; };
 		BAA135592D6EDD420059BD35 /* WeightTrailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrailTests.swift; sourceTree = "<group>"; };
 		BAA1355C2D6EDD490059BD35 /* WeightTrailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrailUITests.swift; sourceTree = "<group>"; };
+		BAE90D602D740DFA0067F715 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BAE90D632D740E200067F715 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,7 @@
 		BAA135462D6EDD2B0059BD35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BAE90D602D740DFA0067F715 /* SettingsView.swift */,
 				BA2574652D72D54800530318 /* WeightTrackingView.swift */,
 				BA2574632D72D17900530318 /* JournalView.swift */,
 				BAA135452D6EDD2B0059BD35 /* ProgressView.swift */,
@@ -202,6 +206,7 @@
 				BA2574682D72D5F500530318 /* Habitmend.entitlements */,
 				BAA135562D6EDD370059BD35 /* WeightTrail.xcodeproj */,
 				BAA1353E2D6EDD2B0059BD35 /* Models */,
+				BAE90D622D740E100067F715 /* Managers */,
 				BAA135402D6EDD2B0059BD35 /* Preview Content */,
 				BAA135422D6EDD2B0059BD35 /* Store */,
 				BAA135442D6EDD2B0059BD35 /* ViewModels */,
@@ -213,6 +218,14 @@
 				BAA1354B2D6EDD2B0059BD35 /* Theme.swift */,
 			);
 			path = WeightTrail;
+			sourceTree = "<group>";
+		};
+		BAE90D622D740E100067F715 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BAE90D632D740E200067F715 /* NotificationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		BAA135572D6EDD370059BD35 /* Products */ = {
@@ -381,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2574642D72D17900530318 /* JournalView.swift in Sources */,
+				BAE90D612D740DFA0067F715 /* SettingsView.swift in Sources */,
 				BAA1355B2D6EDD420059BD35 /* WeightTrailTests.swift in Sources */,
 				BA2574622D72D0D500530318 /* Journal.swift in Sources */,
 				BAA1354F2D6EDD2B0059BD35 /* Theme.swift in Sources */,
@@ -402,6 +416,7 @@
 				BA2574762D72D64400530318 /* WeightRowView.swift in Sources */,
 				BA2574782D72D64500530318 /* CustomStyles.swift in Sources */,
 				BA2574792D72D64600530318 /* TimeFrame.swift in Sources */,
+				BAE90D642D740E200067F715 /* NotificationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

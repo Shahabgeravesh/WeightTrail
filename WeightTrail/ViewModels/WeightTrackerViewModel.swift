@@ -1,5 +1,75 @@
 import Foundation
 import SwiftUI
+import UserNotifications
+
+// MARK: - NotificationManager
+class NotificationManager: ObservableObject {
+    static let shared = NotificationManager()
+    
+    @Published var isNotificationsEnabled = false
+    
+    func requestAuthorization() async throws {
+        let result = try await UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound])
+        
+        DispatchQueue.main.async {
+            self.isNotificationsEnabled = result
+        }
+    }
+    
+    func scheduleWeightReminder(at time: Date) {
+        // Remove existing notifications first
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Time to weigh in!"
+        content.body = "Keep your streak going by logging today's weight"
+        content.sound = .default
+        
+        // Create daily trigger at specified time
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone.current  // Now we can modify the calendar
+        
+        // Extract hour and minute components in user's time zone
+        let components = calendar.dateComponents([.hour, .minute], from: time)
+        
+        // For debugging
+        print("Scheduling notification for \(components.hour ?? 0):\(components.minute ?? 0) in timezone: \(TimeZone.current.identifier)")
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        
+        let request = UNNotificationRequest(
+            identifier: "weightReminder",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(request)
+        
+        // Verify next trigger date
+        if let nextTrigger = trigger.nextTriggerDate() {
+            print("Next notification scheduled for: \(nextTrigger)")
+        }
+    }
+    
+    func cancelNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+    
+    // Helper method to check scheduled notifications
+    func checkScheduledNotifications() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            for request in requests {
+                if let trigger = request.trigger as? UNCalendarNotificationTrigger {
+                    print("Scheduled notification: \(trigger.dateComponents)")
+                    if let next = trigger.nextTriggerDate() {
+                        print("Next trigger: \(next)")
+                    }
+                }
+            }
+        }
+    }
+}
 
 class WeightTrackerViewModel: ObservableObject {
     @Published var weights: [Weight] = []
@@ -19,12 +89,32 @@ class WeightTrackerViewModel: ObservableObject {
             UserDefaults.standard.set(preferredUnit.rawValue, forKey: unitPreferenceKey)
         }
     }
+    @Published var reminderTime: Date {
+        didSet {
+            UserDefaults.standard.set(reminderTime, forKey: reminderTimeKey)
+            if isRemindersEnabled {
+                NotificationManager.shared.scheduleWeightReminder(at: reminderTime)
+            }
+        }
+    }
+    @Published var isRemindersEnabled: Bool {
+        didSet {
+            UserDefaults.standard.set(isRemindersEnabled, forKey: remindersEnabledKey)
+            if isRemindersEnabled {
+                NotificationManager.shared.scheduleWeightReminder(at: reminderTime)
+            } else {
+                NotificationManager.shared.cancelNotifications()
+            }
+        }
+    }
     
     private let weightsKey = "savedWeights"
     private let goalWeightKey = "goalWeight"
     private let swipeHintKey = "hasSeenSwipeHint"
     private let journalKey = "savedJournalEntries"
     private let unitPreferenceKey = "weightUnitPreference"
+    private let reminderTimeKey = "reminderTime"
+    private let remindersEnabledKey = "remindersEnabled"
     
     init() {
         self.hasSeenSwipeHint = UserDefaults.standard.bool(forKey: swipeHintKey)
@@ -34,6 +124,8 @@ class WeightTrackerViewModel: ObservableObject {
         } else {
             self.preferredUnit = .lbs // Default to lbs
         }
+        self.reminderTime = UserDefaults.standard.object(forKey: reminderTimeKey) as? Date ?? Calendar.current.date(from: DateComponents(hour: 8, minute: 0))!
+        self.isRemindersEnabled = UserDefaults.standard.bool(forKey: remindersEnabledKey)
         loadData()
         loadJournalEntries()
     }
