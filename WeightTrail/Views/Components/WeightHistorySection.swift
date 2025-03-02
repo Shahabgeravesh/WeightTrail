@@ -23,7 +23,12 @@ struct WeightHistorySection: View {
             .padding(.horizontal)
             
             if viewModel.weights.isEmpty {
-                EmptyStateView()
+                EmptyStateView(
+                    title: "No weight entries yet",
+                    message: "Add your first weight entry using the form above",
+                    buttonTitle: nil,
+                    action: nil
+                )
             } else {
                 weightsList
             }

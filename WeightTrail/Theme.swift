@@ -1,6 +1,10 @@
 import SwiftUI
 
 enum Theme {
+    static func scaledFont(_ style: Font.TextStyle) -> Font {
+        Font.system(style, design: .rounded)
+    }
+    
     static let primary = Color.blue
     static let secondary = Color.gray
     static let accent = Color.orange

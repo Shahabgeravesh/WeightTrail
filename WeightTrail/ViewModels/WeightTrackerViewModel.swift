@@ -136,6 +136,10 @@ class WeightTrackerViewModel: ObservableObject {
         weights.append(newWeight)
         weights.sort { $0.date > $1.date }
         saveWeights()
+        
+        // Success haptic
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
     
     func deleteWeight(_ weight: Weight) {

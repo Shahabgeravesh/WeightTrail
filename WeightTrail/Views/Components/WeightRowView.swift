@@ -28,5 +28,18 @@ struct WeightRowView: View {
         .background(Theme.cardBackground)
         .cornerRadius(12)
         .shadow(color: Theme.cardShadow, radius: 4)
+        .contextMenu {
+            Button(role: .destructive) {
+                viewModel.deleteWeight(weight)
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            
+            Button {
+                // Edit action
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+        }
     }
 } 

@@ -6,6 +6,7 @@ struct WeightProgressView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var selectedTimeFrame: TimeFrame = .month
+    @State private var isLoading = false
     
     var filteredWeights: [Weight] {
         viewModel.weights
@@ -30,73 +31,80 @@ struct WeightProgressView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: horizontalSizeClass == .regular ? 32 : 24) {
-                // Unit Selector
-                Picker("Unit", selection: $viewModel.preferredUnit) {
-                    Text("kg").tag(WeightUnit.kg)
-                    Text("lbs").tag(WeightUnit.lbs)
-                }
-                .pickerStyle(.segmented)
-                .frame(width: 100)
-                .padding(.horizontal)
-                
-                // Time Frame Selector
-                Picker("Time Frame", selection: $selectedTimeFrame) {
-                    ForEach(TimeFrame.allCases, id: \.self) { timeFrame in
-                        Text(timeFrame.rawValue).tag(timeFrame)
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .scaleEffect(1.5)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                VStack(spacing: horizontalSizeClass == .regular ? 32 : 24) {
+                    // Unit Selector
+                    Picker("Unit", selection: $viewModel.preferredUnit) {
+                        Text("kg").tag(WeightUnit.kg)
+                        Text("lbs").tag(WeightUnit.lbs)
                     }
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                
-                if !viewModel.weights.isEmpty {
-                    // Weight Chart Card
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Weight Trend")
-                            .font(.title2)
-                            .bold()
-                        
-                        WeightChartView(
-                            weights: filteredWeights,
-                            timeFrame: selectedTimeFrame,
-                            goalWeight: viewModel.goalWeight.map { 
-                                viewModel.preferredUnit == .kg ? $0 / 2.20462 : $0 
-                            },
-                            yAxisRange: yAxisRange
-                        )
-                        .frame(height: 220)
-                    }
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(Theme.cardBackground)
-                            .shadow(color: Theme.cardShadow, radius: 10)
-                    )
+                    .pickerStyle(.segmented)
+                    .frame(width: 100)
                     .padding(.horizontal)
                     
-                    // Stats Cards
-                    StatsGridView(viewModel: viewModel, timeFrame: selectedTimeFrame)
-                        .id(viewModel.preferredUnit)
-                } else {
-                    // Empty State
-                    VStack(spacing: 20) {
-                        Image(systemName: "scale.3d")
-                            .font(.system(size: 60))
-                            .foregroundStyle(Theme.primary)
-                        
-                        Text("Track Your Progress")
-                            .font(.title2)
-                            .bold()
-                        
-                        Text("Add your first weight measurement to start tracking your progress")
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.secondary)
+                    // Time Frame Selector
+                    Picker("Time Frame", selection: $selectedTimeFrame) {
+                        ForEach(TimeFrame.allCases, id: \.self) { timeFrame in
+                            Text(timeFrame.rawValue).tag(timeFrame)
+                        }
                     }
-                    .padding(40)
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal)
+                    
+                    if !viewModel.weights.isEmpty {
+                        // Weight Chart Card
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Weight Trend")
+                                .font(.title2)
+                                .bold()
+                            
+                            WeightChartView(
+                                weights: filteredWeights,
+                                timeFrame: selectedTimeFrame,
+                                goalWeight: viewModel.goalWeight.map { 
+                                    viewModel.preferredUnit == .kg ? $0 / 2.20462 : $0 
+                                },
+                                yAxisRange: yAxisRange
+                            )
+                            .frame(height: 220)
+                        }
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Theme.cardBackground)
+                                .shadow(color: Theme.cardShadow, radius: 10)
+                        )
+                        .padding(.horizontal)
+                        
+                        // Stats Cards
+                        StatsGridView(viewModel: viewModel, timeFrame: selectedTimeFrame)
+                            .id(viewModel.preferredUnit)
+                    } else {
+                        // Empty State
+                        VStack(spacing: 20) {
+                            Image(systemName: "scale.3d")
+                                .font(.system(size: 60))
+                                .foregroundStyle(Theme.primary)
+                            
+                            Text("Track Your Progress")
+                                .font(.title2)
+                                .bold()
+                            
+                            Text("Add your first weight measurement to start tracking your progress")
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(40)
+                    }
                 }
+                .frame(maxWidth: horizontalSizeClass == .regular ? 1000 : .infinity)
+                .padding(.horizontal)
             }
-            .frame(maxWidth: horizontalSizeClass == .regular ? 1000 : .infinity)
-            .padding(.horizontal)
         }
         .background(Theme.background.ignoresSafeArea())
         .navigationBarTitleDisplayMode(.inline)

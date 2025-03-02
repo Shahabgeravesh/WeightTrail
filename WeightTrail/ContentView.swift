@@ -11,6 +11,9 @@ struct ContentView: View {
     @StateObject private var viewModel = WeightTrackerViewModel()
     @State private var showingSettings = false
     
+    // Add deep linking support
+    @Environment(\.scenePhase) private var scenePhase
+    
     var body: some View {
         TabView {
             weightTab
@@ -18,6 +21,8 @@ struct ContentView: View {
             journalTab
         }
         .tint(Theme.primary)
+        // Support system appearance settings
+        .preferredColorScheme(.none)
     }
     
     private var weightTab: some View {

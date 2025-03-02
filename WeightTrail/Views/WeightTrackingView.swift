@@ -33,6 +33,8 @@ struct WeightTrackingView: View {
                     showingEditSheet: $showingEditSheet
                 )
             }
+            .frame(maxWidth: horizontalSizeClass == .regular ? 800 : .infinity)
+            .padding(.horizontal, horizontalSizeClass == .regular ? 40 : 20)
         }
         .background(Theme.background.ignoresSafeArea())
         .navigationBarTitleDisplayMode(.inline)

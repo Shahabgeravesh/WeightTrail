@@ -23,6 +23,8 @@ struct AddWeightCard: View {
                             .keyboardType(.decimalPad)
                             .textFieldStyle(.custom)
                             .focused($isWeightFocused)
+                            .accessibilityLabel("Enter weight value")
+                            .accessibilityHint("Double tap to enter your current weight")
                         
                         Picker("Unit", selection: $viewModel.preferredUnit) {
                             Text("kg").tag(WeightUnit.kg)
@@ -30,6 +32,7 @@ struct AddWeightCard: View {
                         }
                         .pickerStyle(.segmented)
                         .frame(width: 100)
+                        .accessibilityLabel("Weight unit selector")
                     }
                     
                     if showingError {
@@ -61,5 +64,22 @@ struct AddWeightCard: View {
                 .shadow(color: Theme.cardShadow, radius: 10, x: 0, y: 4)
         )
         .padding(.horizontal)
+    }
+}
+
+struct ErrorBanner: View {
+    let message: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .foregroundColor(.red)
+            Text(message)
+                .font(.caption)
+        }
+        .padding()
+        .background(Color(.systemBackground))
+        .cornerRadius(8)
+        .shadow(radius: 2)
     }
 } 
