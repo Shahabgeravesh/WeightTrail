@@ -3,11 +3,21 @@ import SwiftUI
 struct JournalView: View {
     @ObservedObject var viewModel: WeightTrackerViewModel
     @State private var newEntry: String = ""
-    @State private var showingEditSheet = false
-    @State private var selectedEntry: JournalEntry?
-    @State private var editContent: String = ""
+    @State private var editState: EditState?
     @FocusState private var isEditing: Bool
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
+    struct EditState: Identifiable {
+        let id: UUID
+        let entry: JournalEntry
+        var content: String
+        
+        init(entry: JournalEntry) {
+            self.id = entry.id
+            self.entry = entry
+            self.content = entry.content
+        }
+    }
     
     var body: some View {
         ScrollView {
@@ -52,9 +62,7 @@ struct JournalView: View {
                             viewModel.deleteJournalEntry(entry)
                         })
                         .onTapGesture {
-                            selectedEntry = entry
-                            editContent = entry.content
-                            showingEditSheet = true
+                            editState = EditState(entry: entry)
                         }
                     }
                 }
@@ -65,14 +73,16 @@ struct JournalView: View {
         .onTapGesture {
             isEditing = false // Dismiss keyboard when tapping outside
         }
-        .sheet(isPresented: $showingEditSheet) {
+        .sheet(item: $editState) { state in
             NavigationView {
                 Form {
                     Section("Edit Entry") {
-                        TextEditor(text: $editContent)
+                        TextEditor(text: Binding(
+                            get: { state.content },
+                            set: { editState?.content = $0 }
+                        ))
                             .frame(height: 200)
-                            .onChange(of: editContent) { _ in
-                                // Enable haptic feedback while typing
+                            .onChange(of: state.content) { _ in
                                 let generator = UIImpactFeedbackGenerator(style: .light)
                                 generator.impactOccurred()
                             }
@@ -81,30 +91,22 @@ struct JournalView: View {
                 .navigationTitle("Edit Entry")
                 .navigationBarItems(
                     leading: Button("Cancel") {
-                        showingEditSheet = false
+                        editState = nil
                     },
                     trailing: Button("Save") {
-                        guard let entry = selectedEntry,
-                              !editContent.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                        guard !state.content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                             return
                         }
                         
                         withAnimation {
-                            viewModel.updateJournalEntry(entry, newContent: editContent)
-                            // Success haptic
+                            viewModel.updateJournalEntry(state.entry, newContent: state.content)
                             let generator = UINotificationFeedbackGenerator()
                             generator.notificationOccurred(.success)
                         }
-                        showingEditSheet = false
+                        editState = nil
                     }
-                    .disabled(editContent.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .disabled(state.content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 )
-            }
-            .onTapGesture {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), 
-                                             to: nil, 
-                                             from: nil, 
-                                             for: nil)
             }
         }
     }

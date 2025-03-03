@@ -183,9 +183,13 @@ class WeightTrackerViewModel: ObservableObject {
     }
     
     func updateJournalEntry(_ entry: JournalEntry, newContent: String) {
+        // Trim whitespace
+        let trimmedContent = newContent.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedContent.isEmpty else { return }
+        
         if let index = journalEntries.firstIndex(where: { $0.id == entry.id }) {
             withAnimation {
-                journalEntries[index] = JournalEntry(id: entry.id, date: entry.date, content: newContent)
+                journalEntries[index] = JournalEntry(id: entry.id, date: entry.date, content: trimmedContent)
                 saveJournalEntries()
             }
         }
