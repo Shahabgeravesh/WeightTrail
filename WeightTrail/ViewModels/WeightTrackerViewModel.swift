@@ -184,8 +184,10 @@ class WeightTrackerViewModel: ObservableObject {
     
     func updateJournalEntry(_ entry: JournalEntry, newContent: String) {
         if let index = journalEntries.firstIndex(where: { $0.id == entry.id }) {
-            journalEntries[index] = JournalEntry(id: entry.id, date: entry.date, content: newContent)
-            saveJournalEntries()
+            withAnimation {
+                journalEntries[index] = JournalEntry(id: entry.id, date: entry.date, content: newContent)
+                saveJournalEntries()
+            }
         }
     }
     

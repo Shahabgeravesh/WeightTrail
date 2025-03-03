@@ -71,6 +71,11 @@ struct JournalView: View {
                     Section("Edit Entry") {
                         TextEditor(text: $editContent)
                             .frame(height: 200)
+                            .onChange(of: editContent) { _ in
+                                // Enable haptic feedback while typing
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.impactOccurred()
+                            }
                     }
                 }
                 .navigationTitle("Edit Entry")
@@ -79,11 +84,20 @@ struct JournalView: View {
                         showingEditSheet = false
                     },
                     trailing: Button("Save") {
-                        if let entry = selectedEntry {
+                        guard let entry = selectedEntry,
+                              !editContent.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                            return
+                        }
+                        
+                        withAnimation {
                             viewModel.updateJournalEntry(entry, newContent: editContent)
+                            // Success haptic
+                            let generator = UINotificationFeedbackGenerator()
+                            generator.notificationOccurred(.success)
                         }
                         showingEditSheet = false
                     }
+                    .disabled(editContent.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 )
             }
             .onTapGesture {
